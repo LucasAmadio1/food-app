@@ -6,11 +6,15 @@ import { Header } from '@/components/Header'
 import { CategoryButton } from '@/components/Category-button'
 import { Product } from '@/components/product'
 import { Link } from 'expo-router'
+import { useCartStore } from '@/stores/cart-store'
 
 export default function Home() {
+  const cartStore = useCartStore()
   const [category, setCategory] = useState(CATEGORIES[0])
 
   const sectionListRef = useRef<SectionList>(null)
+
+  const cartQuantityItems = cartStore.products.reduce((total, product) => total + product.quantity, 0)
 
   function hadleCategorySelect(selectedCategory: string) {
     setCategory(selectedCategory)
@@ -31,7 +35,7 @@ export default function Home() {
     <View className="flex-1 pt-8">
       <Header 
         title="faça seu pedido"
-        cartQuatityItems={20}
+        cartQuatityItems={cartQuantityItems}
       />
 
       <FlatList
