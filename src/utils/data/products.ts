@@ -119,8 +119,8 @@ const MENU = [
     data: [
       {
         id: "7",
-        title: "Hmmm, coquinha!",
-        price: 6.9,
+        title: "Coca-Cola 350ML",
+        price: 4.15,
         thumbnail: require("../../assets/products/thumbnail/7.png"),
         cover: require("../../assets/products/cover/7.png"),
         description:
